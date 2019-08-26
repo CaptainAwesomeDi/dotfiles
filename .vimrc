@@ -3,17 +3,16 @@ filetype on                  " required
 syntax on
 filetype indent on
 filetype plugin on
-set nu! rnu!
+set nu!
 set guifont=Monaco:h14
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
-nmap 0 ^
-imap jk <esc>
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+
 Plugin 'tpope/vim-fugitive'
 Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'scrooloose/nerdtree'
@@ -37,7 +36,6 @@ Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'tpope/vim-repeat'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ervandew/supertab'
-Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'isruslan/vim-es6'
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -54,7 +52,6 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 colorscheme onehalfdark
 let g:airline_theme='onehalfdark'
-map <C-n> :NERDTreeToggle<CR>
 set background=dark
 let g:jsx_ext_required = 1
 set statusline+=%#warningmsg#
@@ -68,6 +65,20 @@ let g:syntastic_check_on_wq = 0
 set ts=2 sw=2 et
 let g:indent_guides_enable_on_vim_startup = 1
 let g:ctrlp_show_hidden = 1
-let g:minimap_highlight='Visual'
 set rtp+=/usr/local/opt/fzf
 let g:NERDTreeShowBookmarks=1
+
+let mapleader = " "
+" Reinforce Vim directions remove directional keys
+nnoremap <Left> :echoe "use h" <CR>
+nnoremap <Right> :echoe "use l" <CR>
+nnoremap <Up> :echoe "use k" <CR>
+nnoremap <Down> :echoe "use j" <CR>
+
+" Personal Setting
+map <C-n> :NERDTreeToggle<CR>
+nmap 0 ^
+
+
+
+imap jj <esc> 
