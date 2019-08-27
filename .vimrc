@@ -37,6 +37,9 @@ Plugin 'tpope/vim-repeat'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ervandew/supertab'
 Plugin 'isruslan/vim-es6'
+Plugin 'junegunn/fzf', {'dir':'~/.fzf','do':'./install -all'}
+Plugin 'junegunn/fzf.vim'
+Plugin 'Improved-AnsiEsc'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -57,7 +60,7 @@ let g:jsx_ext_required = 1
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
+set encoding=utf-8
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -78,7 +81,7 @@ nnoremap <Down> :echoe "use j" <CR>
 " Personal Setting
 map <C-n> :NERDTreeToggle<CR>
 nmap 0 ^
-
-
+nmap <Leader>f :FZF <CR>
+nmap <Leader>s :Ag <CR>
 
 imap jj <esc> 

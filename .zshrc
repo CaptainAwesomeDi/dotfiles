@@ -125,3 +125,6 @@ alias b="bundle"
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
+
+# Personal alias
+alias migrate="rails db:migrate"
