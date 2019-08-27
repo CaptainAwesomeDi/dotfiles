@@ -37,7 +37,6 @@ Plugin 'tpope/vim-repeat'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ervandew/supertab'
 Plugin 'isruslan/vim-es6'
-Plugin 'junegunn/fzf', {'dir':'~/.fzf','do':'./install -all'}
 Plugin 'junegunn/fzf.vim'
 Plugin 'Improved-AnsiEsc'
 call vundle#end()            " required
@@ -70,7 +69,8 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:ctrlp_show_hidden = 1
 set rtp+=/usr/local/opt/fzf
 let g:NERDTreeShowBookmarks=1
-
+set hlsearch
+set incsearch
 let mapleader = " "
 " Reinforce Vim directions remove directional keys
 nnoremap <Left> :echoe "use h" <CR>
@@ -80,8 +80,32 @@ nnoremap <Down> :echoe "use j" <CR>
 
 " Personal Setting
 map <C-n> :NERDTreeToggle<CR>
+" Normal Mode Mappings
 nmap 0 ^
 nmap <Leader>f :FZF <CR>
 nmap <Leader>s :Ag <CR>
+nmap <Leader>h :nohl <CR>
+" Insert Mode Mappings
+imap jj <esc>
 
-imap jj <esc> 
+" Bang version of Ag the_silver_searcher with preview
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)
+
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }

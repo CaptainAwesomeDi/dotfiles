@@ -114,7 +114,8 @@ eval $(thefuck --alias --enable-experimental-instant-mode)
 HEROKU_AC_ZSH_SETUP_PATH=/Users/scouttalent2/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --color=always {}'"
+export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --theme='OneHalfDark' --color=always {}'"
+export FZF_DEFAULT_OPTS="--preview 'bat --style=numbers --theme='OneHalfDark' --color=always {}'"
 alias gpup="git push --set-upstream"
 alias ll="ls -al"
 alias mkdir="mkdir -p"
