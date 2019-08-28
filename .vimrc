@@ -60,6 +60,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 set encoding=utf-8
+set textwidth=80
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
@@ -85,6 +86,8 @@ nmap 0 ^
 nmap <Leader>f :FZF <CR>
 nmap <Leader>s :Ag <CR>
 nmap <Leader>h :nohl <CR>
+nmap j gj
+nmap k gk
 " Insert Mode Mappings
 imap jj <esc>
 
