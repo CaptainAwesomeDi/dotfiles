@@ -73,6 +73,10 @@ let g:NERDTreeShowBookmarks=1
 set hlsearch
 set incsearch
 let mapleader = " "
+
+" use silver searcher for ctrl-p
+let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
+let g:ctrlp_use_cachin = 0
 " Reinforce Vim directions remove directional keys
 nnoremap <Left> :echoe "use h" <CR>
 nnoremap <Right> :echoe "use l" <CR>
