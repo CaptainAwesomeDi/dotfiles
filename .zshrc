@@ -122,7 +122,7 @@ alias mkdir="mkdir -p"
 
 #Bundler
 alias b="bundle"
-
+alias h="heroku"
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
