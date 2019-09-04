@@ -12,7 +12,7 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
+Plugin 'ngmy/vim-rubocop'
 Plugin 'tpope/vim-fugitive'
 Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'scrooloose/nerdtree'
@@ -38,7 +38,6 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ervandew/supertab'
 Plugin 'isruslan/vim-es6'
 Plugin 'junegunn/fzf.vim'
-Plugin 'Improved-AnsiEsc'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -92,6 +91,13 @@ nmap <Leader>s :Ag <CR>
 nmap <Leader>h :nohl <CR>
 nmap j gj
 nmap k gk
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
+
+"let g:vimrubocop_config = 
+let g:vimrubocop_keymap = 0
+nmap <Leader> r :Rubocop <CR>
 " Insert Mode Mappings
 imap jj <esc>
 
@@ -116,3 +122,10 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+" automatically rebalance windows on vim resize
+ autocmd VimResized * :wincmd =
+
+" zoom a vim pane, <C-w>= to re-balance
+ nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+ nnoremap <leader>= :wincmd =<cr>

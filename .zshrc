@@ -116,6 +116,8 @@ HEROKU_AC_ZSH_SETUP_PATH=/Users/scouttalent2/Library/Caches/heroku/autocomplete/
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --theme='OneHalfDark' --color=always {}'"
 export FZF_DEFAULT_OPTS="--preview 'bat --style=numbers --theme='OneHalfDark' --color=always {}'"
+
+export PATH="$HOME/dotfiles/bin:$PATH"
 alias gpup="git push --set-upstream"
 alias ll="ls -al"
 alias mkdir="mkdir -p"
@@ -125,7 +127,6 @@ alias b="bundle"
 alias h="heroku"
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
-
 
 # Personal alias
 alias migrate="rails db:migrate"
