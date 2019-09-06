@@ -99,8 +99,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-# eval "$(rbenv init -)"
-# export PATH="$HOME/.rbenv/bin:$PATH"
+ eval "$(rbenv init -)"
+ export PATH="$HOME/.rbenv/bin:$PATH"
 
  export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm

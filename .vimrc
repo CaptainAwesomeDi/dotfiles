@@ -39,6 +39,7 @@ Plugin 'ervandew/supertab'
 Plugin 'isruslan/vim-es6'
 Plugin 'junegunn/fzf.vim'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'christoomey/vim-tmux-runner'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -98,7 +99,7 @@ set splitright
 
 "let g:vimrubocop_config = 
 let g:vimrubocop_keymap = 0
-nmap <Leader> r :Rubocop <CR>
+
 " Insert Mode Mappings
 imap jj <esc>
 
@@ -126,7 +127,12 @@ let g:fzf_colors =
 
 " automatically rebalance windows on vim resize
  autocmd VimResized * :wincmd =
-
+ autocmd Filetype help nnoremap <buffer>q :q<CR>
 " zoom a vim pane, <C-w>= to re-balance
  nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
  nnoremap <leader>= :wincmd =<cr>
+" Command alias for typoed commands
+ command! Q q
+ command! Qall qall
+ command! QA qall
+ command! E e
