@@ -13,6 +13,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'ngmy/vim-rubocop'
+Plugin 'craigemery/vim-autotag'
 Plugin 'tpope/vim-fugitive'
 Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'scrooloose/nerdtree'
@@ -145,3 +146,7 @@ let g:fzf_colors =
 
  set colorcolumn=80
  set cursorline
+
+nnoremap <leader>. :CtrlPTag<CR>
+let g:autotagTagsFile="tags"
+set tags=./tags;/

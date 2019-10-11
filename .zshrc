@@ -135,3 +135,8 @@ alias code='code-insiders'
 export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/Cellar/git/2.23.0_1/bin:$PATH"
 export GPG_TTY=$(tty)
+
+alias vi='nvim'
+export PATH="/usr/local/Cellar/ctags/5.8_1/bin:$PATH"
+
+export RANGER_LOAD_DEFAULT_RC=false
