@@ -130,6 +130,8 @@ alias path='echo $PATH | tr -s ":" "\n"'
 # Personal alias
 alias migrate="rails db:migrate"
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
+alias code='code-insiders'
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="/usr/local/Cellar/git/2.23.0_1/bin:$PATH"
+export GPG_TTY=$(tty)

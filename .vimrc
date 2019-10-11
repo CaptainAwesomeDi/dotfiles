@@ -4,7 +4,7 @@ syntax on
 filetype indent on
 filetype plugin on
 set nu!
-set guifont=Monaco:h14
+set guifont=Cascadia\ Code:h14
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -89,7 +89,7 @@ map <C-n> :NERDTreeToggle<CR>
 " Normal Mode Mappings
 nmap 0 ^
 nmap <Leader>f :FZF <CR>
-nmap <Leader>s :Ag <CR>
+nmap <Leader>s :Ag! <CR>
 nmap <Leader>h :nohl <CR>
 nmap j gj
 nmap k gk
@@ -136,3 +136,12 @@ let g:fzf_colors =
  command! Qall qall
  command! QA qall
  command! E e
+
+ augroup numbertoggle
+   autocmd!
+   autocmd InsertLeave * set nornu
+   autocmd InsertEnter * set rnu
+ augroup END
+
+ set colorcolumn=80
+ set cursorline
