@@ -11,7 +11,7 @@ export ZSH="/Users/$(whoami)/.oh-my-zsh"
 ZSH_THEME="muse"
 
 # Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
+
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
@@ -99,8 +99,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
- eval "$(rbenv init -)"
- export PATH="$HOME/.rbenv/bin:$PATH"
+ #eval "$(rbenv init -)"
+ #export PATH="$HOME/.rbenv/bin:$PATH"
 
  export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
@@ -141,3 +141,4 @@ export PATH="/usr/local/Cellar/ctags/5.8_1/bin:$PATH"
 
 export RANGER_LOAD_DEFAULT_RC=false
 alias ide="tmux split-window -v -p 30; tmux split-window -h -p 66; tmux split-window -h -p 50"
+source ~/.rvm/scripts/rvm
