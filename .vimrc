@@ -13,7 +13,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'ngmy/vim-rubocop'
-Plugin 'craigemery/vim-autotag'
 Plugin 'tpope/vim-fugitive'
 Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'scrooloose/nerdtree'

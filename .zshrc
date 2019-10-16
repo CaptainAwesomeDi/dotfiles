@@ -141,4 +141,3 @@ export PATH="/usr/local/Cellar/ctags/5.8_1/bin:$PATH"
 
 export RANGER_LOAD_DEFAULT_RC=false
 alias ide="tmux split-window -v -p 30; tmux split-window -h -p 66; tmux split-window -h -p 50"
-source ~/.rvm/scripts/rvm
