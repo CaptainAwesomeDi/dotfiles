@@ -99,8 +99,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
- #eval "$(rbenv init -)"
- #export PATH="$HOME/.rbenv/bin:$PATH"
+ eval "$(rbenv init -)"
+ export PATH="$HOME/.rbenv/bin:$PATH"
 
  export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
@@ -132,7 +132,6 @@ alias migrate="rails db:migrate"
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 alias code='code-insiders'
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="/usr/local/Cellar/git/2.23.0_1/bin:$PATH"
 export GPG_TTY=$(tty)
 
@@ -141,3 +140,25 @@ export PATH="/usr/local/Cellar/ctags/5.8_1/bin:$PATH"
 
 export RANGER_LOAD_DEFAULT_RC=false
 alias ide="tmux split-window -v -p 30; tmux split-window -h -p 66; tmux split-window -h -p 50"
+
+# export PATH="$HOME/opt/miniconda3/bin:$PATH"  # commented out by conda initialize
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/scouttalent2/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/scouttalent2/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/scouttalent2/opt/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/scouttalent2/opt/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
+alias gs="git switch"

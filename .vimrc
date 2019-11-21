@@ -40,6 +40,7 @@ Plugin 'isruslan/vim-es6'
 Plugin 'junegunn/fzf.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-tmux-runner'
+Plugin 'thoughtbot/vim-rspec'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -86,6 +87,10 @@ nnoremap <Down> :echoe "use j" <CR>
 
 " Personal Setting
 map <C-n> :NERDTreeToggle<CR>
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>e :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
 " Normal Mode Mappings
 nmap 0 ^
 nmap <Leader>f :FZF <CR>
@@ -149,3 +154,4 @@ let g:fzf_colors =
 nnoremap <leader>. :CtrlPTag<CR>
 let g:autotagTagsFile="tags"
 set tags=./tags;/
+let g:rspec_command = "!bundle exec rspec {spec}"
