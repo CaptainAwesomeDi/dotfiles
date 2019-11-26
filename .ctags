@@ -3,3 +3,7 @@
 --tag-relative=yes
 --exclude=.git
 --exclude=node_modules
+--sort=yes
+--exclude=build
+--exclude=coverage
+--exclude=vendor

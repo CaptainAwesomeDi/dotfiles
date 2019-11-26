@@ -37,6 +37,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ervandew/supertab'
 Plugin 'isruslan/vim-es6'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-tmux-runner'
@@ -54,8 +55,8 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-colorscheme onehalfdark
-let g:airline_theme='onehalfdark'
+colorscheme molokai
+let g:airline_theme='molokai'
 set background=dark
 let g:jsx_ext_required = 1
 set statusline+=%#warningmsg#
@@ -76,9 +77,16 @@ set hlsearch
 set incsearch
 let mapleader = " "
 
+" fzf related commands , use control-P or this
+let g:fzf_files_options =
+  \ '--reverse ' .
+  \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
+let g:fzf_layout = { 'down': '~60%' }
+let $FZF_DEFAULT_COMMAND = 'ag -g "" --hidden'
+
 " use silver searcher for ctrl-p
 let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
-let g:ctrlp_use_cachin = 0
+let g:ctrlp_use_caching = 0
 " Reinforce Vim directions remove directional keys
 nnoremap <Left> :echoe "use h" <CR>
 nnoremap <Right> :echoe "use l" <CR>
@@ -102,7 +110,7 @@ nmap k gk
 set splitbelow
 set splitright
 
-"let g:vimrubocop_config = 
+"let g:vimrubocop_config =
 let g:vimrubocop_keymap = 0
 
 " Insert Mode Mappings
@@ -131,27 +139,49 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 " automatically rebalance windows on vim resize
- autocmd VimResized * :wincmd =
- autocmd Filetype help nnoremap <buffer>q :q<CR>
+autocmd VimResized * :wincmd =
+autocmd Filetype help nnoremap <buffer>q :q<CR>
 " zoom a vim pane, <C-w>= to re-balance
- nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
- nnoremap <leader>= :wincmd =<cr>
+nnoremap <leader>- :wincmd _<cr>:wincmd \|<cr>
+nnoremap <leader>= :wincmd =<cr>
 " Command alias for typoed commands
- command! Q q
- command! Qall qall
- command! QA qall
- command! E e
+command! Q q
+command! Qall qall
+command! QA qall
+command! E e
 
- augroup numbertoggle
-   autocmd!
-   autocmd InsertLeave * set nornu
-   autocmd InsertEnter * set rnu
- augroup END
+augroup numbertoggle
+  autocmd!
+  autocmd InsertLeave * set nornu
+  autocmd InsertEnter * set rnu
+augroup END
 
- set colorcolumn=80
- set cursorline
+set colorcolumn=80
+set cursorline
+
+"  strip trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
 
 nnoremap <leader>. :CtrlPTag<CR>
 let g:autotagTagsFile="tags"
 set tags=./tags;/
 let g:rspec_command = "!bundle exec rspec {spec}"
+
+set wildmenu
+set wildmode=longest:full,full
+
+" Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
+au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
+
+" md, markdown, and mk are markdown and define buffer-local preview
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
+
+" add json syntax highlighting
+au BufNewFile,BufRead *.json set ft=javascript
+
+au BufRead,BufNewFile *.txt call s:setupWrapping()
+
+" make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
+au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+au FileType perl set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
+au FileType ruby set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79

@@ -162,3 +162,4 @@ export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
 alias gs="git switch"
+export GLASSFISH_HOME="/usr/local/opt/glassfish/libexec"
