@@ -81,9 +81,9 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
+   export EDITOR='vim'
 # else
-#   export EDITOR='mvim'
+#  export EDITOR='mvim'
 # fi
 
 # Compilation flags
@@ -160,6 +160,7 @@ unset __conda_setup
 
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export PATH="/usr/local/Cellar/springboot/2.2.1.RELEASE/bin:$PATH"
 
 alias gs="git switch"
 export GLASSFISH_HOME="/usr/local/opt/glassfish/libexec"

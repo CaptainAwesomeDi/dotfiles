@@ -185,3 +185,4 @@ au BufRead,BufNewFile *.txt call s:setupWrapping()
 au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 au FileType perl set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 au FileType ruby set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
+set list listchars=tab:\ \ ,trail:·
