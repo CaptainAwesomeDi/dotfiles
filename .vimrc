@@ -23,14 +23,16 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-dispatch'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'scrooloose/syntastic'
+Plugin 'dense-analysis/ale'
 Plugin 'mattn/emmet-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-commentary'
 Plugin 'xuyuanp/nerdtree-git-plugin'
 Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'tpope/vim-repeat'
@@ -42,6 +44,8 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-tmux-runner'
 Plugin 'thoughtbot/vim-rspec'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'leafgarland/typescript-vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -59,15 +63,45 @@ colorscheme molokai
 let g:airline_theme='molokai'
 set background=dark
 let g:jsx_ext_required = 1
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+
 set encoding=utf-8
 set textwidth=80
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+set spell
+
+" for YouComepleteMe have to go to plugin folder to run install script
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" ALE Plugin Linter Settings
+let g:ale_linters = {
+  \ 'ruby':['rubocop','solargraph'],
+  \ }
+let g:ale_completion_enabled = 1
+
+" ALE Status Line Config
+function! LinterStatus() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+
+  return l:counts.total == 0 ? '✨ all good ✨' : printf(
+        \   '😞 %dW %dE',
+        \   all_non_errors,
+        \   all_errors
+        \)
+endfunction
+set statusline=
+set statusline+=%m
+set statusline+=\ %f
+set statusline+=%=
+set statusline+=\ %{LinterStatus()}
+
+
 set ts=2 sw=2 et
 let g:indent_guides_enable_on_vim_startup = 1
 let g:ctrlp_show_hidden = 1
@@ -186,3 +220,13 @@ au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 au FileType perl set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 au FileType ruby set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
 set list listchars=tab:\ \ ,trail:·
+
+let g:ycm_langauage_server =
+  \ [
+  \  {
+  \    'name':'ruby',
+  \    'cmdline':[ expand('/Users/scouttalent2/.rbenv/shims/solargraph'),'stdio'],
+  \    'filetypes': ['ruby']
+  \  }
+  \ ]
+

@@ -99,8 +99,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
- eval "$(rbenv init -)"
- export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/bin:$PATH"
 
  export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
@@ -164,3 +164,5 @@ export PATH="/usr/local/Cellar/springboot/2.2.1.RELEASE/bin:$PATH"
 
 alias gs="git switch"
 export GLASSFISH_HOME="/usr/local/opt/glassfish/libexec"
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
