@@ -41,10 +41,10 @@ Plugin 'ervandew/supertab'
 Plugin 'isruslan/vim-es6'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'christoomey/vim-tmux-runner'
 Plugin 'thoughtbot/vim-rspec'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'leafgarland/typescript-vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -59,8 +59,8 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-colorscheme molokai
-let g:airline_theme='molokai'
+colorscheme gruvbox
+let g:airline_theme='base16_gruvbox_dark_hard'
 set background=dark
 let g:jsx_ext_required = 1
 
@@ -221,12 +221,6 @@ au FileType perl set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 au FileType ruby set softtabstop=2 tabstop=2 shiftwidth=2 textwidth=79
 set list listchars=tab:\ \ ,trail:·
 
-let g:ycm_langauage_server =
-  \ [
-  \  {
-  \    'name':'ruby',
-  \    'cmdline':[ expand('/Users/scouttalent2/.rbenv/shims/solargraph'),'stdio'],
-  \    'filetypes': ['ruby']
-  \  }
-  \ ]
-
+let g:coc_node_path = "~/.nvm/versions/node/v14.1.0/bin/node"
+set noswapfile
+set nobackup
