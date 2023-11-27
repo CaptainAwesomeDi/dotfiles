@@ -1,4 +1,4 @@
-the_sliver_searcher
+the_silver_searcher
 reattach_to_user_namespace
 tmux
 yarn
@@ -15,3 +15,4 @@ ranger
 rbenv
 htop
 coreutils
+ripgrep

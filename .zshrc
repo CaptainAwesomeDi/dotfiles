@@ -106,15 +106,6 @@ export PATH="$HOME/.rbenv/bin:$PATH"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-eval $(thefuck --alias --enable-experimental-instant-mode)
-
-# heroku autocomplete setup
-HEROKU_AC_ZSH_SETUP_PATH=/Users/scouttalent2/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_CTRL_T_OPTS="--preview 'bat --style=numbers --theme='OneHalfDark' --color=always {}'"
-export FZF_DEFAULT_OPTS="--preview 'bat --style=numbers --theme='OneHalfDark' --color=always {}'"
 
 export PATH="$HOME/dotfiles/bin:$PATH"
 alias gpup="git push --set-upstream"
@@ -123,46 +114,15 @@ alias mkdir="mkdir -p"
 
 #Bundler
 alias b="bundle"
-alias h="heroku"
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
 # Personal alias
 alias migrate="rails db:migrate"
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-alias code='code-insiders'
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="/usr/local/Cellar/git/2.23.0_1/bin:$PATH"
 export GPG_TTY=$(tty)
 
 alias vi='nvim'
-export PATH="/usr/local/Cellar/ctags/5.8_1/bin:$PATH"
 
-export RANGER_LOAD_DEFAULT_RC=false
 alias ide="tmux split-window -v -p 30; tmux split-window -h -p 66; tmux split-window -h -p 50"
 
-# export PATH="$HOME/opt/miniconda3/bin:$PATH"  # commented out by conda initialize
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/scouttalent2/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/scouttalent2/opt/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/scouttalent2/opt/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/scouttalent2/opt/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-export PATH="/usr/local/opt/openssl/bin:$PATH"
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
-export PATH="/usr/local/Cellar/springboot/2.2.1.RELEASE/bin:$PATH"
-
-alias gs="git switch"
-export GLASSFISH_HOME="/usr/local/opt/glassfish/libexec"
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
