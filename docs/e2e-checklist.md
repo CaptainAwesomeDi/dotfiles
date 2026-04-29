@@ -6,7 +6,7 @@ Use this checklist for changes to [`./.tmux.conf`](../.tmux.conf). Run it from t
 Environment setup
 -----------------
 
-- [ ] Install the local prerequisites listed in [`./BrewPackage`](../BrewPackage): `tmux`, `reattach-to-user-namespace`, `fzf`, and `neovim`.
+- [ ] Install the local prerequisites listed in [`./BrewPackage`](../BrewPackage): `tmux`, `reattach_to_user_namespace`, `fzf`, and `neovim`.
 - [ ] Confirm the theme/plugin files referenced by `.tmux.conf` exist on the test machine: `~/.tmux-themepack/basic.tmuxtheme`, `~/.tmux/plugins/tpm/tpm`, and the `christoomey/vim-tmux-navigator` plugin.
 - [ ] Start a fresh tmux server that uses this repo's config instead of your personal session state:
 
@@ -27,9 +27,11 @@ Targeted E2E pass
 -----------------
 
 - [ ] Reload the repo config explicitly with `tmux -L forgeflow-e2e source-file "$PWD/.tmux.conf"` and confirm the command exits successfully without error output. Do not use `prefix + r` here because that binding targets `~/.tmux.conf`.
+- [ ] Verify the documented prefix behavior from [`README.md`](../README.md): `C-s` is the active prefix and the default `C-b` prefix is disabled.
 - [ ] Verify the documented session and pane bindings from [`README.md`](../README.md): new window, vertical split, horizontal split, break pane, choose-tree, join pane, and swap pane.
 - [ ] Verify the prefixless pane navigation and pane resizing bindings described in [`README.md`](../README.md), including the Vim handoff behavior while `nvim` is focused.
 - [ ] Verify copy-mode behavior from [`README.md`](../README.md): visual selection starts with `v`, `y` and `Enter` copy to `pbcopy`, and mouse drag release also copies.
+- [ ] Verify the documented behavior and quality-of-life settings from [`README.md`](../README.md): `remain-on-exit` is `off`, mouse mode is enabled, history limit is `100000`, window and pane indexing starts at `1`, and windows are renumbered automatically.
 
 Result recording
 ----------------
