@@ -26,7 +26,7 @@ Scenario fixtures
 Targeted E2E pass
 -----------------
 
-- [ ] Reload the repo config explicitly with `tmux -L forgeflow-e2e source-file "$PWD/.tmux.conf"` and confirm tmux reports that `.tmux.conf` reloaded successfully. Do not use `prefix + r` here because that binding targets `~/.tmux.conf`.
+- [ ] Reload the repo config explicitly with `tmux -L forgeflow-e2e source-file "$PWD/.tmux.conf"` and confirm the command exits successfully without error output. Do not use `prefix + r` here because that binding targets `~/.tmux.conf`.
 - [ ] Verify the documented session and pane bindings from [`README.md`](../README.md): new window, vertical split, horizontal split, break pane, choose-tree, join pane, and swap pane.
 - [ ] Verify the prefixless pane navigation and pane resizing bindings described in [`README.md`](../README.md), including the Vim handoff behavior while `nvim` is focused.
 - [ ] Verify copy-mode behavior from [`README.md`](../README.md): visual selection starts with `v`, `y` and `Enter` copy to `pbcopy`, and mouse drag release also copies.
